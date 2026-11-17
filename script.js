@@ -1,9 +1,5 @@
-// this is where the magic happens  
-console.log('Hello!');
-
 // Array of all images to cycle through
-// Customize these paths to your own images
-const images = [ // image array
+const images = [ 
   './assets/image-content/image-1.png',
   './assets/image-content/image-2.png',
   './assets/image-content/image-3.png',
@@ -13,7 +9,7 @@ const images = [ // image array
 ];
 
 // Reference HTML elements 
-// Connect to the elements we need to change
+// Connect to the elements needed to change
 const imageContent = document.querySelector('.image-content');  // Image container
 const mainButton = document.getElementById('main-button');      // Image switch button
 const finalMessage = document.querySelector('.final-message');  // Final message
