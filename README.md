@@ -3,4 +3,3 @@ A little image changer as a gift for someone special, and to practice my Javascr
 
 # To-do
 - make the different art for each frame
-- make confetti fall at the end!
