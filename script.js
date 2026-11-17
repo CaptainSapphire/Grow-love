@@ -1,61 +1,29 @@
 // Array of all images to cycle through
 const images = [ 
-  './assets/image-content/image-1.png',
-  './assets/image-content/image-2.png',
-  './assets/image-content/image-3.png',
-  './assets/image-content/image-4.png',
-  './assets/image-content/image-5.png',
-  './assets/image-content/image-6.png'
+  './assets/phase-1.png',
+  './assets/phase-2-draft.png',
+  './assets/phase-3-draft.png',
+  './assets/phase-4-draft.png',
 ];
 
-// Reference HTML elements 
-// Connect to the elements needed to change
-const imageContent = document.querySelector('.image-content');  // Image container
-const mainButton = document.getElementById('main-button');      // Image switch button
-const finalMessage = document.querySelector('.final-message');  // Final message
+const growBtn = document.getElementById("grow-btn");
+const displayImage = document.getElementById("display-image");
 
-// STEP 3: Track what image we're at 
-// Start with the first image (index 0)
-let currentIndex = 0;
-
-// Update image function 
-// Function to change images with fade effect
-function updateImage() {
-  // Fade out current image
-  imageContent.style.opacity = 0;
-  
-  // Preload next image
-  const img = new Image();
-  img.src = images[currentIndex];
-  
-  // When image is loaded
-  img.onload = () => {
-    // Change to new image
-    imageContent.style.backgroundImage = `url('${images[currentIndex]}')`;
-    
-    // Fade in new image
-    imageContent.style.opacity = 1;
-  };
+// Set initial image on load
+if (images.length > 0) {
+    displayImage.src = images[currentIndex];
 }
 
-// STEP 5: Initial image display 
-// Show first image when page loads
-updateImage();
-
-// STEP 6: Button click handler 
-// Change image when button is clicked
-mainButton.addEventListener('click', () => {
-  // Go to next image
-  currentIndex++;
-  
-  // Update if not at the end
-  if (currentIndex < images.length) {
-    updateImage();
-  }
-  
-  // Once at the last image, show the final message and hide the button 
-  if (currentIndex === images.length - 1) {
-    mainButton.style.display = 'none';
-    finalMessage.style.display = 'block';
-  }
+growBtn.addEventListener("click", () => {
+    currentIndex++;
+    
+    // Check if there are still images left
+    if (currentIndex < images.length) {
+        displayImage.src = images[currentIndex];
+    } else {
+        // No more images left - disable button or hide it
+        growBtn.disabled = true;
+        growBtn.textContent = "Fully Grown! ❤️";
+        // Alternatively, to hide it completely: growBtn.style.display = "none";
+    }
 });
