@@ -1,29 +1,31 @@
-// Array of all images to cycle through
-const images = [ 
-  './assets/phase-1.png',
-  './assets/phase-2-draft.png',
-  './assets/phase-3-draft.png',
-  './assets/phase-4-draft.png',
-];
+document.addEventListener("DOMContentLoaded", () => {
+    const images = [ 
+  './assets/phase-1.jpg',
+  './assets/phase-2-draft.jpg',
+  './assets/phase-3-draft.jpg',
+  './assets/phase-4-draft.jpg',
+  ];
 
-const growBtn = document.getElementById("grow-btn");
-const displayImage = document.getElementById("display-image");
+    let currentIndex = 0;
 
-// Set initial image on load
-if (images.length > 0) {
-    displayImage.src = images[currentIndex];
-}
+    const growBtn = document.getElementById("grow-btn");
+    const plantImage = document.getElementById("plant-image");
 
-growBtn.addEventListener("click", () => {
-    currentIndex++;
-    
-    // Check if there are still images left
-    if (currentIndex < images.length) {
-        displayImage.src = images[currentIndex];
+    // Safety check: ensure elements exist
+    if (growBtn && plantImage && images.length > 0) {
+        plantImage.src = images[currentIndex];
+
+        growBtn.addEventListener("click", () => {
+            currentIndex++;
+
+            if (currentIndex < images.length) {
+                plantImage.src = images[currentIndex];
+            } else {
+                growBtn.disabled = true;
+                growBtn.textContent = "Fully Grown!";
+            }
+        });
     } else {
-        // No more images left - disable button or hide it
-        growBtn.disabled = true;
-        growBtn.textContent = "Fully Grown! ❤️";
-        // Alternatively, to hide it completely: growBtn.style.display = "none";
+        console.error("Grow button or plant image element not found in HTML!");
     }
 });

@@ -1,55 +1,48 @@
 body {
+    margin: 0;
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    background-color: #fce4ec;
-    font-family: Arial, sans-serif;
-    margin: 0;
+    background-color: #f7f9fc;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.container {
+.wrapper {
     display: flex;
-    flex-direction: column; /* Stack items vertically */
+    flex-direction: column; /* Stacks button on top of the image container */
     align-items: center;
     gap: 20px;
 }
 
 #grow-btn {
-    padding: 12px 24px;
-    font-size: 1.2rem;
-    background-color: #e91e63;
+    padding: 12px 28px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    background-color: #2e7d32;
     color: white;
     border: none;
-    border-radius: 25px;
+    border-radius: 30px;
     cursor: pointer;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    transition: background 0.2s;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.2s, transform 0.1s;
 }
 
 #grow-btn:hover:not(:disabled) {
-    background-color: #c2185b;
+    background-color: #1b5e20;
+    transform: scale(1.05);
 }
 
 #grow-btn:disabled {
-    background-color: #ccc;
+    background-color: #9e9e9e;
     cursor: not-allowed;
+    box-shadow: none;
 }
 
 .image-container img {
-    max-width: 300px;
+    max-width: 320px;
+    width: 100%;
     height: auto;
+    object-fit: contain;
     border-radius: 12px;
-}
-
-#bg-container {
-    width: 100vw;
-    height: 100vh;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
 }
