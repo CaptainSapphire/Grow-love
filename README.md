@@ -1,8 +1,9 @@
 # Grow-love
-Based on a project I saw on Instagram by Nashgallery! Not branched or using their code, just inspired. 
+A little image changer as a gift for someone special, and to practice my Javascript skills! 
 
 # To-do
 - Make a "grow" button that will go between transitions/frames
+- make the button FUNCTIONAL
 - make the different art for each frame
-- make a transition between the phases
-- make the background art, set the background to that
+- make a transition between the phases; maybe a fade?
+- when button is hovered make it move 
